@@ -16,13 +16,23 @@ length_input = st.selectbox( "Select Explanation Length", ["Short (1-2 paragraph
 
 template = load_prompt('./Prompts/template.json')
 
-# Fill the placeholders in template
-prompt = template.invoke({
-    'paper_input': paper_input,
-    'style_input': style_input,
-    'length_input': length_input
-})
-
 if st.button("Summarize"):
-    result = model.invoke(prompt)
+    chain = template | model
+    result = chain.invoke({
+        'paper_input': paper_input,
+        'style_input': style_input,
+        'length_input': length_input
+    })
+
+    # We can replace below code to above (line 31 - 36)
+    # (Use chain instead of using invoke methods two times)
+
+    # Fill the placeholders in template
+    # prompt = template.invoke({
+    #     'paper_input': paper_input,
+    #     'style_input': style_input,
+    #     'length_input': length_input
+    # })
+    # result = model.invoke(prompt)
+
     st.write(result.content)
