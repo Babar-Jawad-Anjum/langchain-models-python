@@ -25,7 +25,7 @@ if st.button("Summarize"):
     })
 
     # We can replace below code to above (line 31 - 36)
-    # (Use chain instead of using invoke methods two times)
+    # (Use chain concept instead of using invoke methods two times)
 
     # Fill the placeholders in template
     # prompt = template.invoke({
