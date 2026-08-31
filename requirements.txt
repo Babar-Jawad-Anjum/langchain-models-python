@@ -27,3 +27,6 @@ scikit-learn
 
 # Streamlit
 streamlit
+
+# Pydantic
+pydantic
