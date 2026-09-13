@@ -13,7 +13,7 @@ to review and analyze the data. It supports complex workflows across multiple di
 splitter = CharacterTextSplitter(
     chunk_size=100,
     chunk_overlap=0,
-    separator=""
+    separator="" # i.e ["\n\n", "\n", " ", ""]
 )
 
 result = splitter.split_text(text)
